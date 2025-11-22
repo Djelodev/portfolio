@@ -1,0 +1,749 @@
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <title>Trazie Creative — Développeur Web Full‑Stack</title>
+    <meta name="description" content="Trazie Creative — Développeur web full‑stack. Création d’applications modernes, performantes et sur‑mesure : front-end, back-end, architecture et expérience produit.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="shortcut icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
+  
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  
+  <body class="bg-white text-slate-900 antialiased min-h-screen flex flex-col">
+    <!-- Background Aura Wrapper (neutral, subtle) -->
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <div class="absolute -top-20 right-[-20%] h-[32rem] w-[32rem] rounded-full bg-[#204674]/10 blur-3xl bg-float"></div>
+      <div class="absolute top-48 -left-24 h-[28rem] w-[28rem] rounded-full bg-[#204674]/6 blur-3xl bg-float" style="animation-delay: 2s;"></div>
+    </div>
+  
+    <!-- Page Wrapper -->
+    <div class="flex-1 flex flex-col">
+      <!-- NAVBAR -->
+      <header id="main-header" class="border-b border-slate-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-50 transition-all duration-300">
+        <div class="max-w-6xl mx-auto flex items-center justify-between py-3 sm:py-4 px-4 sm:px-6 lg:px-8">
+          <!-- Logo -->
+          <a href="#hero" class="flex items-center group">
+            <img src="logo.png" alt="Logo" class="h-8 sm:h-10 w-auto transition-opacity group-hover:opacity-80">
+          </a>
+
+          <!-- Desktop nav -->
+          <nav class="hidden md:flex items-center gap-8 text-xs font-medium tracking-[0.16em] uppercase text-slate-500">
+            <a href="#about" class="hover:text-[#204674] transition-colors duration-300">À propos</a>
+            <a href="#skills" class="hover:text-[#204674] transition-colors duration-300">Compétences</a>
+            <a href="#projects" class="hover:text-[#204674] transition-colors duration-300">Projets</a>
+            <a href="#services" class="hover:text-[#204674] transition-colors duration-300">Services</a>
+            <a href="#contact" class="hover:text-[#204674] transition-colors duration-300">Contact</a>
+          </nav>
+
+          <!-- CTA right -->
+          <div class="flex items-center gap-2 sm:gap-3">
+            <a href="#projects" class="hidden sm:inline-flex text-xs font-medium text-slate-600 hover:text-[#204674] transition-colors">
+              Voir mes projets
+            </a>
+            <a href="https://wa.me/33771454970?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9(e)%20par%20vos%20services%20de%20d%C3%A9veloppement%20web.%20Pourriez-vous%20me%20donner%20plus%20d%27informations%20%3F" target="_blank" rel="noopener noreferrer" class="btn-wrapper">
+              <button class="btn px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-white tracking-tight flex items-center gap-1.5 sm:gap-2 focus:outline-none" type="button">
+                <span class="hidden sm:inline">Me contacter</span>
+                <span class="sm:hidden">Contact</span>
+                <span class="inline-flex items-center justify-center rounded-full bg-white/10 w-4 h-4 sm:w-5 sm:h-5">
+                  <i data-lucide="arrow-right" class="w-3 h-3 sm:w-3.5 sm:h-3.5"></i>
+                </span>
+              </button>
+            </a>
+            <!-- Menu mobile button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:text-[#204674] hover:bg-slate-100 transition-colors" aria-label="Menu">
+              <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <nav id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white/95 backdrop-blur-md transition-all duration-300">
+          <div class="max-w-6xl mx-auto px-4 py-4 space-y-1">
+            <a href="#about" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#204674] hover:bg-slate-50 rounded-lg transition-colors">À propos</a>
+            <a href="#skills" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#204674] hover:bg-slate-50 rounded-lg transition-colors">Compétences</a>
+            <a href="#projects" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#204674] hover:bg-slate-50 rounded-lg transition-colors">Projets</a>
+            <a href="#services" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#204674] hover:bg-slate-50 rounded-lg transition-colors">Services</a>
+            <a href="#contact" class="block px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#204674] hover:bg-slate-50 rounded-lg transition-colors">Contact</a>
+          </div>
+        </nav>
+      </header>
+  
+      <!-- MAIN -->
+      <main class="flex-1">
+        <!-- HERO -->
+        <section id="hero" class="pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16">
+          <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Content -->
+            <div class="reveal text-center">
+              <div class="inline-flex items-center gap-2 rounded-full border border-[#204674]/15 bg-[#204674]/5 text-[0.7rem] font-medium text-[#204674] tracking-[0.18em] uppercase pl-2 pr-3 py-1 mb-5 mx-auto">
+                <span class="inline-flex h-1.5 w-1.5 rounded-full bg-[#204674]"></span>
+                <span>Développeur web full‑stack</span>
+              </div>
+  
+              <h1 class="font-display font-semibold tracking-tight text-4xl sm:text-5xl lg:text-6xl text-slate-900 mb-4">
+                Je conçois et développe
+                <span class="block text-[#204674]">
+                  vos produits web de bout en bout.
+                </span>
+              </h1>
+
+              <p class="mt-3 text-base sm:text-lg text-slate-700 max-w-xl mx-auto">
+                Je construis des applications web modernes, robustes et élégantes : 
+                du design d'expérience à l'API, avec une attention particulière 
+                pour la performance, la maintenabilité et le détail d'interface.
+              </p>
+  
+              <div class="mt-7 flex flex-wrap items-center justify-center gap-4">
+                <!-- Primary CTA -->
+                <a href="https://wa.me/33771454970?text=Bonjour%2C%20j%27aimerais%20discuter%20de%20mon%20projet%20web%20avec%20vous.%20Seriez-vous%20disponible%20pour%20un%20%C3%A9change%20%3F" target="_blank" rel="noopener noreferrer" class="btn-wrapper">
+                  <button class="btn px-4 sm:px-5 py-2.5 text-sm font-medium text-white tracking-tight flex items-center gap-2 focus:outline-none" type="button">
+                    <span>Parler de votre projet</span>
+                    <span class="inline-flex items-center justify-center rounded-full bg-white/10 w-5 h-5">
+                      <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+                    </span>
+                  </button>
+                </a>
+  
+                <!-- Secondary CTA -->
+                <a href="#projects" class="inline-flex items-center gap-2 text-sm font-medium text-[#204674] hover:text-[#102338] transition-colors duration-300 group">
+                  <span>Voir les réalisations</span>
+                  <i data-lucide="arrow-down-right" class="w-4 h-4 icon-hover"></i>
+                </a>
+              </div>
+  
+              <!-- Quick highlights -->
+              <dl class="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 max-w-xl mx-auto text-sm text-slate-700">
+                <div class="rounded-lg border border-slate-200 bg-white/60 px-3 sm:px-4 py-2.5 sm:py-3">
+                  <dt class="text-[0.65rem] sm:text-[0.7rem] tracking-[0.18em] uppercase text-slate-500 mb-1">Stack moderne</dt>
+                  <dd class="font-medium text-xs sm:text-sm">React, Node.js, Laravel, Django</dd>
+                </div>
+                <div class="rounded-lg border border-slate-200 bg-white/60 px-3 sm:px-4 py-2.5 sm:py-3">
+                  <dt class="text-[0.65rem] sm:text-[0.7rem] tracking-[0.18em] uppercase text-slate-500 mb-1">Approche</dt>
+                  <dd class="font-medium text-xs sm:text-sm">UX‑driven &amp; data‑driven</dd>
+                </div>
+                <div class="rounded-lg border border-slate-200 bg-white/60 px-3 sm:px-4 py-2.5 sm:py-3 sm:col-span-2 lg:col-span-1">
+                  <dt class="text-[0.65rem] sm:text-[0.7rem] tracking-[0.18em] uppercase text-slate-500 mb-1">Livrables</dt>
+                  <dd class="font-medium text-xs sm:text-sm">Code propre &amp; documenté</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+  
+        <!-- ABOUT -->
+        <section id="about" class="py-10 sm:py-14">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+              <div class="lg:col-span-5 reveal">
+                <h2 class="font-display text-2xl sm:text-3xl tracking-tight font-semibold text-slate-900">
+                  À propos
+                </h2>
+                <p class="mt-3 text-base sm:text-lg text-slate-700">
+                  Je suis développeur web full‑stack spécialisé dans la conception et le développement
+                  de produits digitaux premium : interfaces web sur‑mesure, back‑end robuste, et
+                  intégration soignée à votre écosystème existant.
+                </p>
+                <p class="mt-3 text-base sm:text-lg text-slate-700">
+                  Mon approche : partir de vos enjeux métier, concevoir une expérience utilisateur claire,
+                  et livrer un produit techniquement irréprochable — lisible, testé et prêt à évoluer.
+                </p>
+              </div>
+  
+              <div class="lg:col-span-7 reveal">
+                <!-- Section pour l'affiche -->
+                <div class="rounded-[1rem] sm:rounded-[1.5rem] border border-slate-200 bg-white/80 overflow-hidden flex items-center justify-center">
+                  <img src="affiche.jpg" alt="Affiche" class="w-full max-w-full sm:max-w-lg aspect-square object-cover rounded-[1rem] sm:rounded-[1.5rem]">
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <!-- SKILLS -->
+        <section id="skills" class="py-10 sm:py-14 bg-[#204674]/4">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-end justify-between gap-4 mb-6 reveal">
+              <div>
+                <h2 class="font-display text-2xl sm:text-3xl tracking-tight font-semibold text-slate-900">
+                  Compétences
+                </h2>
+                <p class="mt-2 text-base text-slate-700 max-w-xl">
+                  Un socle complet front‑end, back‑end et outils pour livrer des produits cohérents,
+                  maintenables et performants.
+                </p>
+              </div>
+            </div>
+  
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 reveal">
+              <!-- Frontend -->
+              <div class="card rounded-[1.25rem] border border-[#204674]/20 bg-white/90 p-5 flex flex-col gap-3">
+                <div class="flex items-center justify-between gap-2">
+                  <div class="inline-flex items-center gap-2">
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#204674]/8">
+                      <i data-lucide="monitor-smartphone" class="w-3.5 h-3.5 text-[#204674]"></i>
+                    </span>
+                    <h3 class="text-sm font-medium text-slate-900">Front‑end</h3>
+                  </div>
+                  <span class="text-[0.7rem] rounded-full bg-[#204674]/6 text-[#204674] px-2 py-1 font-medium">
+                    UX‑first
+                  </span>
+                </div>
+                <div class="flex flex-wrap gap-1.5 mt-1 text-sm">
+                  <span class="tech-badge rounded-full bg-[#204674]/5 text-[#204674] px-2 py-1 border border-[#204674]/20">React</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Next.js</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">HTML</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">CSS</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Tailwind CSS</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Design system</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Accessibilité</span>
+                </div>
+              </div>
+  
+              <!-- Backend -->
+              <div class="card rounded-[1.25rem] border border-[#204674]/20 bg-white/90 p-5 flex flex-col gap-3">
+                <div class="flex items-center justify-between gap-2">
+                  <div class="inline-flex items-center gap-2">
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#204674]/8">
+                      <i data-lucide="database" class="w-3.5 h-3.5 text-[#204674]"></i>
+                    </span>
+                    <h3 class="text-sm font-medium text-slate-900">Back‑end</h3>
+                  </div>
+                  <span class="text-[0.7rem] rounded-full bg-[#204674]/6 text-[#204674] px-2 py-1 font-medium">
+                    API‑driven
+                  </span>
+                </div>
+                <div class="flex flex-wrap gap-1.5 mt-1 text-sm">
+                  <span class="tech-badge rounded-full bg-[#204674]/5 text-[#204674] px-2 py-1 border border-[#204674]/20">Node.js</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">PHP</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Laravel</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Django</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">REST / GraphQL</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">PostgreSQL</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Prisma / ORM</span>
+                </div>
+              </div>
+  
+              <!-- Tools -->
+              <div class="card rounded-[1.25rem] border border-[#204674]/20 bg-white/90 p-5 flex flex-col gap-3">
+                <div class="flex items-center justify-between gap-2">
+                  <div class="inline-flex items-center gap-2">
+                    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full bg-[#204674]/8">
+                      <i data-lucide="settings-2" class="w-3.5 h-3.5 text-[#204674]"></i>
+                    </span>
+                    <h3 class="text-sm font-medium text-slate-900">Outils &amp; workflow</h3>
+                  </div>
+                  <span class="text-[0.7rem] rounded-full bg-[#204674]/6 text-[#204674] px-2 py-1 font-medium">
+                    Delivery
+                  </span>
+                </div>
+                <div class="flex flex-wrap gap-1.5 mt-1 text-sm">
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Git &amp; GitHub</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">CI/CD</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Testing</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Figma</span>
+                  <span class="tech-badge rounded-full bg-white text-slate-700 px-2 py-1 border border-slate-200">Monitoring</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <!-- PORTFOLIO -->
+        <section id="projects" class="py-10 sm:py-14">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10 reveal">
+              <h2 class="font-display text-2xl sm:text-3xl tracking-tight font-semibold text-slate-900 mb-3">
+                Mes réalisations
+              </h2>
+              <p class="text-base text-slate-700 max-w-2xl mx-auto">
+                Découvrez une sélection de projets sur lesquels j'ai travaillé : 
+                de la conception à la mise en production.
+              </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal">
+              <!-- Project 1 -->
+              <article class="card group rounded-[1.5rem] border border-slate-200 bg-white overflow-hidden flex flex-col">
+                <!-- Image preview -->
+                <div class="relative h-56 sm:h-64 bg-gradient-to-br from-[#204674]/10 to-[#204674]/5 overflow-hidden">
+                  <img src="project-1.jpg" alt="Projet 1" class="w-full h-full object-cover img-hover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div class="absolute top-4 right-4">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5 text-[0.7rem] font-medium text-[#204674] border border-[#204674]/10">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                      En ligne
+                    </span>
+                  </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="p-5 sm:p-6 flex flex-col gap-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="flex-1">
+                      <h3 class="font-display text-xl tracking-tight font-semibold text-slate-900 mb-2">
+                        RT Couverture
+                      </h3>
+                      <p class="text-sm text-slate-600 leading-relaxed">
+                        Site web vitrine pour une entreprise de rénovation et réparation de toitures à Amiens. 
+                        Interface moderne avec système de devis en ligne, présentation des services et zone d'intervention.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Technologies -->
+                  <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#204674]/5 text-[#204674] text-xs font-medium border border-[#204674]/10">
+                      <i data-lucide="code" class="w-3.5 h-3.5"></i>
+                      HTML
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200">
+                      CSS
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200">
+                      PHP
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200">
+                      JavaScript
+                    </span>
+                  </div>
+
+                  <!-- Actions -->
+                  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 pt-2 border-t border-slate-100">
+                    <div class="flex items-center gap-3 sm:gap-4 text-xs text-slate-500">
+                      <span class="inline-flex items-center gap-1.5">
+                        <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                        <span>2024</span>
+                      </span>
+                      <span class="inline-flex items-center gap-1.5">
+                        <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+                        <span>Site vitrine</span>
+                      </span>
+                    </div>
+                    <a href="https://djelodev.github.io/rt-couverture/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#204674] hover:text-[#102338] transition-colors duration-300 group">
+                      <span>Voir le projet</span>
+                      <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 icon-hover-rotate"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 2 -->
+              <article class="card group rounded-[1.5rem] border border-slate-200 bg-white overflow-hidden flex flex-col">
+                <!-- Image preview -->
+                <div class="relative h-56 sm:h-64 bg-gradient-to-br from-[#204674]/10 to-[#204674]/5 overflow-hidden">
+                  <img src="project-2.jpg" alt="Projet 2" class="w-full h-full object-cover img-hover group-hover:scale-105 transition-transform duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                  <div class="absolute top-4 right-4">
+                    <span class="inline-flex items-center gap-1.5 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1.5 text-[0.7rem] font-medium text-[#204674] border border-[#204674]/10">
+                      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                      En ligne
+                    </span>
+                  </div>
+                </div>
+                
+                <!-- Content -->
+                <div class="p-5 sm:p-6 flex flex-col gap-4">
+                  <div class="flex items-start justify-between gap-3">
+                    <div class="flex-1">
+                      <h3 class="font-display text-xl tracking-tight font-semibold text-slate-900 mb-2">
+                        Masewa - E-commerce cosmétiques
+                      </h3>
+                      <p class="text-sm text-slate-600 leading-relaxed">
+                        Premier site e-commerce dédié aux cosmétiques et matières premières d'Afrique. 
+                        Plateforme complète avec paiement sécurisé, livraison internationale et intégration WhatsApp pour les commandes.
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Technologies -->
+                  <div class="flex flex-wrap gap-2">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#204674]/5 text-[#204674] text-xs font-medium border border-[#204674]/10">
+                      <i data-lucide="code" class="w-3.5 h-3.5"></i>
+                      Laravel
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200">
+                      PHP
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200">
+                      JavaScript
+                    </span>
+                    <span class="px-3 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200">
+                      MySQL
+                    </span>
+                  </div>
+
+                  <!-- Actions -->
+                  <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 pt-2 border-t border-slate-100">
+                    <div class="flex items-center gap-3 sm:gap-4 text-xs text-slate-500">
+                      <span class="inline-flex items-center gap-1.5">
+                        <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                        <span>2024</span>
+                      </span>
+                      <span class="inline-flex items-center gap-1.5">
+                        <i data-lucide="tag" class="w-3.5 h-3.5"></i>
+                        <span>E-commerce</span>
+                      </span>
+                    </div>
+                    <a href="https://masewa.co/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-medium text-[#204674] hover:text-[#102338] transition-colors duration-300 group">
+                      <span>Voir le projet</span>
+                      <i data-lucide="arrow-up-right" class="w-3.5 h-3.5 sm:w-4 sm:h-4 icon-hover-rotate"></i>
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+  
+        <!-- SERVICES -->
+        <section id="services" class="py-10 sm:py-14 bg-[#204674]/4">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-end justify-between gap-4 mb-6 reveal">
+              <div>
+                <h2 class="font-display text-2xl sm:text-3xl tracking-tight font-semibold text-slate-900">
+                  Services
+                </h2>
+                <p class="mt-2 text-base text-slate-700 max-w-xl">
+                  J’interviens de façon complète ou ciblée selon vos besoins :
+                  de la première idée au produit en production.
+                </p>
+              </div>
+            </div>
+  
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal">
+              <!-- Service 1 -->
+              <div class="card rounded-[1.25rem] border border-[#204674]/20 bg-white/90 p-5 flex flex-col gap-3">
+                <div class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#204674]/8">
+                  <i data-lucide="pen-square" class="w-4 h-4 text-[#204674]"></i>
+                </div>
+                <h3 class="text-sm font-medium text-slate-900">Conception UX/UI &amp; prototypage</h3>
+                <p class="text-sm text-slate-700">
+                  Ateliers, wireframes et interfaces haute-fidélité centrées utilisateur,
+                  avec un design system clair et réutilisable.
+                </p>
+                <ul class="mt-1 text-[0.8rem] text-slate-600 space-y-1.5">
+                  <li class="flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                    Cartographie des parcours &amp; écrans clés
+                  </li>
+                  <li class="flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                    Guideline UI réutilisable par vos équipes
+                  </li>
+                </ul>
+              </div>
+  
+              <!-- Service 2 -->
+              <div class="card rounded-[1.25rem] border border-[#204674]/20 bg-white/90 p-5 flex flex-col gap-3">
+                <div class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#204674]/8">
+                  <i data-lucide="braces" class="w-4 h-4 text-[#204674]"></i>
+                </div>
+                <h3 class="text-sm font-medium text-slate-900">Développement full‑stack sur‑mesure</h3>
+                <p class="text-sm text-slate-700">
+                  Implémentation front‑end &amp; back‑end complète, intégration à vos APIs
+                  et mise en place d’une architecture évolutive.
+                </p>
+                <ul class="mt-1 text-[0.8rem] text-slate-600 space-y-1.5">
+                  <li class="flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                    Code testé, typé et documenté
+                  </li>
+                  <li class="flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                    Intégration CI/CD &amp; monitoring
+                  </li>
+                </ul>
+              </div>
+  
+              <!-- Service 3 -->
+              <div class="card rounded-[1.25rem] border border-[#204674]/20 bg-white/90 p-5 flex flex-col gap-3">
+                <div class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-[#204674]/8">
+                  <i data-lucide="compass" class="w-4 h-4 text-[#204674]"></i>
+                </div>
+                <h3 class="text-sm font-medium text-slate-900">Audit &amp; accompagnement technique</h3>
+                <p class="text-sm text-slate-700">
+                  Diagnostic de votre stack actuelle, recommandations concrètes
+                  et accompagnement pour les mises à niveau.
+                </p>
+                <ul class="mt-1 text-[0.8rem] text-slate-600 space-y-1.5">
+                  <li class="flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                    Audit code, performance &amp; architecture
+                  </li>
+                  <li class="flex items-center gap-1.5">
+                    <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-500"></i>
+                    Roadmap technique priorisée
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <!-- CONTACT -->
+        <section id="contact" class="py-10 sm:py-14">
+          <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+              <!-- Left text -->
+              <div class="lg:col-span-5 reveal">
+                <h2 class="font-display text-2xl sm:text-3xl tracking-tight font-semibold text-slate-900">
+                  Parlons de votre projet
+                </h2>
+                <p class="mt-2 text-base sm:text-lg text-slate-700">
+                  Quelques lignes suffisent pour commencer. Dites‑moi où vous en êtes, vos objectifs
+                  et vos contraintes, et je reviens vers vous avec une proposition claire.
+                </p>
+                <div class="mt-5 space-y-2 text-sm text-slate-700">
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="mail" class="w-4 h-4 text-[#204674]"></i>
+                    <a href="mailto:iriebiange01@gmail.com" class="hover:text-[#204674] underline-offset-2 hover:underline">
+                      iriebiange01@gmail.com
+                    </a>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="github" class="w-4 h-4 text-[#204674]"></i>
+                    <a href="https://github.com/Djelodev" target="_blank" rel="noopener noreferrer" class="hover:text-[#204674] underline-offset-2 hover:underline">
+                      GitHub / Djelodev
+                    </a>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <i data-lucide="linkedin" class="w-4 h-4 text-[#204674]"></i>
+                    <a href="https://linkedin.com/in/ange-fabien-trazie-irie-bi-431059287" target="_blank" rel="noopener noreferrer" class="hover:text-[#204674] underline-offset-2 hover:underline">
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+              </div>
+  
+              <!-- Form -->
+              <div class="lg:col-span-7 reveal">
+                <form id="contact-form" action="https://formsubmit.co/iriebiange01@gmail.com" method="POST" class="rounded-[1.5rem] border border-slate-200 bg-white/90 backdrop-blur-md p-4 sm:p-5 space-y-4 shadow-[0_20px_55px_rgba(15,23,42,0.18)]">
+                  <!-- Message de confirmation/succès (caché par défaut) -->
+                  <div id="form-message" class="hidden rounded-lg border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-700 mb-4">
+                    <div class="flex items-center gap-2">
+                      <i data-lucide="check-circle" class="w-4 h-4"></i>
+                      <span>Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.</span>
+                    </div>
+                  </div>
+
+                  <!-- Champs cachés pour FormSubmit -->
+                  <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio">
+                  <input type="hidden" name="_captcha" value="false">
+                  <input type="hidden" name="_next" value="">
+                  <input type="hidden" name="_template" value="box">
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label for="name" class="block text-xs font-medium text-slate-700 mb-1">
+                        Nom complet
+                      </label>
+                      <input id="name" name="name" type="text" autocomplete="name" required class="block w-full rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#204674]/40 focus:border-[#204674]" placeholder="Votre nom">
+                    </div>
+                    <div>
+                      <label for="email" class="block text-xs font-medium text-slate-700 mb-1">
+                        Adresse email
+                      </label>
+                      <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#204674]/40 focus:border-[#204674]" placeholder="vous@exemple.com">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="project-type" class="block text-xs font-medium text-slate-700 mb-1">
+                      Type de projet
+                    </label>
+                    <select id="project-type" name="project-type" required class="block w-full rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-[#204674]/40 focus:border-[#204674]">
+                      <option value="">Sélectionnez un type</option>
+                      <option value="Application web complète">Application web complète</option>
+                      <option value="Refonte front‑end">Refonte front‑end</option>
+                      <option value="Développement back‑end / API">Développement back‑end / API</option>
+                      <option value="Audit &amp; conseil">Audit &amp; conseil</option>
+                      <option value="Autre">Autre</option>
+                    </select>
+                  </div>
+
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label for="budget" class="block text-xs font-medium text-slate-700 mb-1">
+                        Budget estimé
+                      </label>
+                      <input id="budget" name="budget" type="text" class="block w-full rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#204674]/40 focus:border-[#204674]" placeholder="Ex. 5k – 15k€">
+                    </div>
+                    <div>
+                      <label for="timeline" class="block text-xs font-medium text-slate-700 mb-1">
+                        Délai souhaité
+                      </label>
+                      <input id="timeline" name="timeline" type="text" class="block w-full rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#204674]/40 focus:border-[#204674]" placeholder="Ex. 6–8 semaines">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="message" class="block text-xs font-medium text-slate-700 mb-1">
+                      Parlez‑moi de votre projet
+                    </label>
+                    <textarea id="message" name="message" rows="4" required class="block w-full rounded-lg border border-slate-200 bg-slate-50/60 px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#204674]/40 focus:border-[#204674]" placeholder="Contexte, objectifs, fonctionnalités clés, contraintes…"></textarea>
+                  </div>
+
+                  <div class="flex flex-col gap-3 pt-1">
+                    <button type="submit" id="submit-btn" class="btn-wrapper w-full sm:w-auto">
+                      <div class="btn w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-2 text-sm font-medium text-white tracking-tight flex items-center justify-center gap-2">
+                        <span id="submit-text">Envoyer</span>
+                        <span class="inline-flex items-center justify-center rounded-full bg-white/10 w-5 h-5">
+                          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        </span>
+                      </div>
+                    </button>
+                    <div class="text-[0.7rem] sm:text-[0.75rem] text-slate-500 text-center sm:text-left">
+                      Réponse sous 24–48h ouvrées, avec premiers axes de collaboration.
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+  
+      <!-- FOOTER -->
+      <footer class="border-t border-slate-200 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-2 text-sm text-slate-600">
+            <span class="font-display text-sm tracking-tight font-medium text-slate-900">
+              Trazie Creative
+            </span>
+            <span class="w-1 h-1 rounded-full bg-slate-400"></span>
+            <span>Développeur web full‑stack</span>
+          </div>
+          <div class="flex items-center gap-4 text-sm text-slate-500">
+            <a href="mailto:iriebiange01@gmail.com" class="hover:text-[#204674] flex items-center gap-1 transition-colors duration-300 group">
+              <i data-lucide="mail" class="w-4 h-4 icon-hover"></i>
+              <span>Email</span>
+            </a>
+            <a href="https://github.com/Djelodev" target="_blank" rel="noopener noreferrer" class="hover:text-[#204674] flex items-center gap-1 transition-colors duration-300 group">
+              <i data-lucide="github" class="w-4 h-4 icon-hover"></i>
+              <span>GitHub</span>
+            </a>
+            <a href="https://linkedin.com/in/ange-fabien-trazie-irie-bi-431059287" target="_blank" rel="noopener noreferrer" class="hover:text-[#204674] flex items-center gap-1 transition-colors duration-300 group">
+              <i data-lucide="linkedin" class="w-4 h-4 icon-hover"></i>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  
+    <script>
+      // Lucide icons
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide) {
+          lucide.createIcons({ attrs: { stroke: "currentColor", "stroke-width": 1.5 } });
+        }
+
+        // Header scroll effect
+        const header = document.getElementById("main-header");
+        let lastScroll = 0;
+        
+        window.addEventListener("scroll", function() {
+          const currentScroll = window.pageYOffset;
+          if (currentScroll > 50) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+          lastScroll = currentScroll;
+        });
+
+        // Reveal on scroll with stagger
+        const reveals = document.querySelectorAll(".reveal");
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("reveal-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+        );
+        reveals.forEach((el) => observer.observe(el));
+
+        // Gestion du menu mobile
+        const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+        const mobileMenu = document.getElementById("mobile-menu");
+        
+        if (mobileMenuBtn && mobileMenu) {
+          mobileMenuBtn.addEventListener("click", function() {
+            mobileMenu.classList.toggle("hidden");
+            const icon = mobileMenuBtn.querySelector("i");
+            if (icon) {
+              if (mobileMenu.classList.contains("hidden")) {
+                icon.setAttribute("data-lucide", "menu");
+              } else {
+                icon.setAttribute("data-lucide", "x");
+              }
+              if (window.lucide) {
+                lucide.createIcons();
+              }
+            }
+          });
+
+          // Fermer le menu au clic sur un lien
+          const mobileLinks = mobileMenu.querySelectorAll("a");
+          mobileLinks.forEach(link => {
+            link.addEventListener("click", function() {
+              mobileMenu.classList.add("hidden");
+              const icon = mobileMenuBtn.querySelector("i");
+              if (icon) {
+                icon.setAttribute("data-lucide", "menu");
+                if (window.lucide) {
+                  lucide.createIcons();
+                }
+              }
+            });
+          });
+        }
+
+        // Gestion du formulaire de contact
+        const contactForm = document.getElementById("contact-form");
+        const formMessage = document.getElementById("form-message");
+        const submitBtn = document.getElementById("submit-btn");
+        const submitText = document.getElementById("submit-text");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function(e) {
+            // Afficher l'état de chargement
+            if (submitBtn) submitBtn.disabled = true;
+            if (submitText) submitText.textContent = "Envoi en cours...";
+            
+            // Note: FormSubmit redirige automatiquement, mais on peut afficher un message
+            // Le message sera affiché après la redirection si on configure _next
+          });
+
+          // Réinitialiser les icônes après soumission (si la page ne redirige pas)
+          const urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.get("success") === "true") {
+            if (formMessage) formMessage.classList.remove("hidden");
+            if (contactForm) contactForm.reset();
+            // Réinitialiser les icônes Lucide
+            if (window.lucide) {
+              lucide.createIcons();
+            }
+          }
+        }
+      });
+    </script>
+  
+  </body></html>

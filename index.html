@@ -542,8 +542,9 @@
                   <!-- Champs cachés pour FormSubmit -->
                   <input type="hidden" name="_subject" value="Nouveau message depuis votre portfolio">
                   <input type="hidden" name="_captcha" value="false">
-                  <input type="hidden" name="_next" value="">
+                  <input type="hidden" name="_next" id="form-next-url" value="">
                   <input type="hidden" name="_template" value="box">
+                  <input type="hidden" name="_autoresponse" value="Merci pour votre message ! Je vous répondrai dans les plus brefs délais.">
 
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
@@ -721,6 +722,13 @@
         const formMessage = document.getElementById("form-message");
         const submitBtn = document.getElementById("submit-btn");
         const submitText = document.getElementById("submit-text");
+        const formNextUrl = document.getElementById("form-next-url");
+
+        // Configurer l'URL de redirection vers la même page avec paramètre de succès
+        if (formNextUrl) {
+          const currentUrl = window.location.origin + window.location.pathname;
+          formNextUrl.value = currentUrl + "?success=true#contact";
+        }
 
         if (contactForm) {
           contactForm.addEventListener("submit", function(e) {
@@ -728,19 +736,37 @@
             if (submitBtn) submitBtn.disabled = true;
             if (submitText) submitText.textContent = "Envoi en cours...";
             
-            // Note: FormSubmit redirige automatiquement, mais on peut afficher un message
-            // Le message sera affiché après la redirection si on configure _next
+            // Le formulaire sera soumis normalement et FormSubmit redirigera vers _next
           });
 
-          // Réinitialiser les icônes après soumission (si la page ne redirige pas)
+          // Afficher le message de succès si on revient avec le paramètre success
           const urlParams = new URLSearchParams(window.location.search);
           if (urlParams.get("success") === "true") {
-            if (formMessage) formMessage.classList.remove("hidden");
+            // Scroll vers le formulaire
+            setTimeout(() => {
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" });
+            }, 100);
+            
+            // Afficher le message de succès
+            if (formMessage) {
+              formMessage.classList.remove("hidden");
+              formMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            }
+            
+            // Réinitialiser le formulaire
             if (contactForm) contactForm.reset();
+            
             // Réinitialiser les icônes Lucide
             if (window.lucide) {
               lucide.createIcons();
             }
+            
+            // Réinitialiser le bouton
+            if (submitBtn) submitBtn.disabled = false;
+            if (submitText) submitText.textContent = "Envoyer";
+            
+            // Nettoyer l'URL (enlever le paramètre success)
+            window.history.replaceState({}, document.title, window.location.pathname + "#contact");
           }
         }
       });
